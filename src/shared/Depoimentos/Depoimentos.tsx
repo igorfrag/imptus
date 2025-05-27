@@ -60,7 +60,7 @@ const Depoimentos = () => {
   }, [])
 
   return (
-    <section className="py-24 w-full relative bg-gray-50 overflow-hidden">
+    <section className="py-24 w-full relative overflow-hidden">
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
