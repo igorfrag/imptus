@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen  text-white bg-[url('/assets/heroimage.jpg')] bg-cover bg-center max-w-full">
+    <div className="flex flex-col items-center justify-center h-screen  text-white bg-[url('/assets/heroimage.jpg')] bg-cover bg-center max-w-screen max-h-150">
       <div className="text-center max-w-3xl ">
         <h1 className="text-7xl ">
           Seu limite é nosso
