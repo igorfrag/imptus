@@ -2,7 +2,11 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 import lineClamp from '@tailwindcss/line-clamp';
 
 const config = {
-  content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/shared/**/*.{js,ts,jsx,tsx,mdx}'
+  ],
+
   theme: {
     extend: {
       screens: {
