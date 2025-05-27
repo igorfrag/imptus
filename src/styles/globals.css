@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-primary: oklch(0.3536 0.1058 265.33);
+  --color-secondary: #00ffb6;
+  --color-accent: #00bf88;
+}
+
 html,
 body {
   height: 100%;
