@@ -146,7 +146,7 @@ const DepoimentoCard = ({
       >
         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-        <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden bg-white transition-all duration-300 group-hover:scale-105 group-hover:border-6 group-hover:shadow-lg relative z-10">
+        <div className="w-28 h-28 rounded-full border-4 border-white overflow-hidden bg-white transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg relative z-10">
           <img
             src={imagem || "/placeholder.svg"}
             alt={nome}
