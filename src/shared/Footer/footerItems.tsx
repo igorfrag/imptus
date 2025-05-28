@@ -1,14 +1,15 @@
 const footerItems = [
   {
-    title: 'Empresa',
-    items: [
-      { label: 'Sobre nós', link: '/sobre' },
-      { label: 'Trabalhe conosco', link: '/trabalhe-conosco' },
-    ],
+    title: 'Sobre nós',
+    link: '/sobre',
   },
   {
     title: 'Serviços',
-    items: [{ label: 'Imptus para organizações', link: '/imptus-para-organizacoes' }],
+    link: '/servicos',
+  },
+  {
+    title: 'Contato',
+    link: '/contato',
   },
 ];
 
