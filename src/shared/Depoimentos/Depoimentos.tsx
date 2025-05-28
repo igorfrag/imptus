@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 const Depoimentos = () => {
   const depoimentos = [
@@ -34,33 +34,33 @@ const Depoimentos = () => {
       texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       imagem: "/placeholder.svg?height=120&width=120",
     },
-  ]
+  ];
 
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const itemsPerSlide = 3
-  const totalSlides = Math.ceil(depoimentos.length / itemsPerSlide)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const itemsPerSlide = 3;
+  const totalSlides = Math.ceil(depoimentos.length / itemsPerSlide);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides)
-  }
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+    setCurrentSlide(index);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide()
-    }, 8000) 
-    return () => clearInterval(interval)
-  }, [])
+      nextSlide();
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-24 w-full relative overflow-hidden">
+    <section className="relative py-24 mb-24 w-full">
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
@@ -85,7 +85,10 @@ const Depoimentos = () => {
               <div key={slideIndex} className="w-full flex-shrink-0">
                 <div className="flex justify-center items-stretch gap-8 max-w-6xl mx-auto px-8 py-8">
                   {depoimentos
-                    .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
+                    .slice(
+                      slideIndex * itemsPerSlide,
+                      (slideIndex + 1) * itemsPerSlide
+                    )
                     .map((dep, index) => (
                       <DepoimentoCard
                         key={slideIndex * itemsPerSlide + index}
@@ -107,23 +110,38 @@ const Depoimentos = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 cursor-pointer ${
-              index === currentSlide ? "" : "bg-gray-300 hover:bg-gray-400"
+              index === currentSlide
+                ? ""
+                : "bg-gray-300 hover:bg-gray-400"
             }`}
-            style={index === currentSlide ? { backgroundColor: "var(--color-primary)" } : {}}
+            style={
+              index === currentSlide
+                ? { backgroundColor: "var(--color-primary)" }
+                : {}
+            }
           ></div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-const DepoimentoCard = ({ nome, texto, imagem }: { nome: string; texto: string; imagem: string }) => {
+const DepoimentoCard = ({
+  nome,
+  texto,
+  imagem,
+}: {
+  nome: string;
+  texto: string;
+  imagem: string;
+}) => {
   return (
     <div className="w-full max-w-sm group cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02]">
       <div
         className="relative h-48 rounded-t-2xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-xl"
         style={{
-          background: `linear-gradient(150deg, var(--color-primary) 15%, var(--color-accent) 100%, var(--color-secondary) 100%)`,
+          background:
+            "linear-gradient(150deg, var(--color-primary) 15%, var(--color-accent) 100%, var(--color-secondary) 100%)",
         }}
       >
         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -148,17 +166,17 @@ const DepoimentoCard = ({ nome, texto, imagem }: { nome: string; texto: string; 
           className="px-6 py-2 rounded-lg text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1 active:scale-95"
           style={{ backgroundColor: "var(--color-primary)" }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--color-accent)"
+            e.currentTarget.style.backgroundColor = "var(--color-accent)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--color-primary)"
+            e.currentTarget.style.backgroundColor = "var(--color-primary)";
           }}
         >
           Ver Mais
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Depoimentos
+export default Depoimentos;
