@@ -5,10 +5,13 @@ import Hero from '@/components/Hero/Hero';
 
 const HomePage = () => {
   return (
-    <div className="h-screen flex flex-col">
-      <Hero />
-      <main className="flex-1 flex justify-around items-center"></main>
-      <Depoimentos />
+    <div className="min-h-screen flex flex-col">
+      <main className="">
+        <Hero />
+        <div>
+          <Depoimentos />
+        </div>
+      </main>
     </div>
   );
 };
