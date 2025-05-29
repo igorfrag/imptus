@@ -47,7 +47,7 @@ const Header = () => {
         </nav>
 
         <div className="flex gap-10">
-          <button type="button" className="min-w-[100px] h-10 bg-landingPageButton text-white font-bold text-sm rounded-lg cursor-pointer hover:opacity-80">
+          <button type="button" className="min-w-[100px] h-10 bg-primary text-white font-bold text-sm rounded-lg cursor-pointer hover:opacity-80">
             Buy now
           </button>
         </div>
