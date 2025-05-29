@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="flex w-full justify-around items-center gap-10 py-3 px-4 relative max-md:justify-between">
         <div className="max-md:hidden">
-          <Image src={'/dark.png'} width={100} height={100} alt="Landify Logo" />
+          <Image src={'/dark.webp'} width={100} height={100} alt="Landify Logo" />
         </div>
 
         <button aria-label="Botão do menu" type="button" className="md:hidden cursor-pointer" onClick={() => setShowMenu(!showMenu)}>
