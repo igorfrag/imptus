@@ -1,7 +1,9 @@
 'use client';
+import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { MessageCircle } from "lucide-react"
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -45,8 +47,12 @@ const Header = () => {
             </li>
           </ul>
         </nav>
+        
 
         <div className="flex gap-10">
+          <Button size="sm">
+            <MessageCircle size={16} /> Contato
+          </Button>
           <button type="button" className="min-w-[100px] h-10 bg-primary text-white font-bold text-sm rounded-lg cursor-pointer hover:opacity-80">
             Buy now
           </button>
