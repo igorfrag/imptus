@@ -1,10 +1,29 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: oklch(0.3536 0.1058 265.33);
-  --color-secondary: #00ffb6;
-  --color-accent: #00bf88;
-  --color-landingPageButton: #8C30F5;
+  --color-primary-azulprofundo: #012437;
+  --color-primary-azulescuro: #00354d;
+  --color-primary-azulintermediario: #056687;
+  --color-primary-azulclaro: #5d8a9f;
+  --color-primary-azultecnologico: #1babca;
+  --color-secondary-laranjaqueimado: #ff6b35;
+  --color-secondary-azulneon: #0ff0ff;
+  --color-neutral-cinzaclaro: #f5f5f5;
+  --color-neutral-cinzamedio: #e0e0e0;
+  --color-neutral-black: #000000;
+  --color-neutral-branco: #ffffff;
+
+  --background-gradient-azul: linear-gradient(
+    to right,
+    var(--color-primary-azulprofundo),
+    var(--color-primary-azultecnologico)
+  );
+}
+
+@layer utilities {
+  .bg-gradient-azul {
+    background-image: var(--background-gradient-azul);
+  }
 }
 
 html,
