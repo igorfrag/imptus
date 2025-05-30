@@ -1,103 +1,117 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef, memo } from 'react';
+import { useCallback, useEffect, useRef, useState, useMemo } from 'react';
+import Image from 'next/image';
 
-const DepoimentoCard = memo(
-  ({
-    nome,
-    texto,
-    imagem,
-  }: {
-    nome: string;
-    texto: string;
-    imagem: string;
-  }) => {
-    return (
-      <div className="w-full max-w-sm group transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02]">
-        <div
-          className="relative h-48 rounded-t-2xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-xl"
-          style={{
-            background:
-              'linear-gradient(150deg, var(--color-primary) 15%, var(--color-accent) 100%, var(--color-secondary) 100%)',
-          }}
-        >
-          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="w-28 h-28 rounded-full border-4 border-white overflow-hidden bg-white transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg relative z-10">
-            <img
-              src={imagem || '/placeholder.svg'}
-              alt={nome}
-              className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
-            />
-          </div>
-        </div>
-        <div className="bg-white rounded-b-2xl p-6 text-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:bg-gray-50">
-          <h3 className="text-xl font-semibold text-gray-800 mb-3 transition-all duration-300 group-hover:text-gray-900">
-            {nome}
-          </h3>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6 transition-all duration-300 group-hover:text-gray-700">
-            {texto}
-          </p>
-          <button
-            className="px-6 py-2 rounded-lg text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1 active:scale-95 cursor-pointer"
-            style={{ backgroundColor: 'var(--color-primary)' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-accent)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-primary)';
-            }}
-          >
-            Ver Mais
-          </button>
-        </div>
-      </div>
-    );
+interface Depoimento {
+  nome: string;
+  cargo: string;
+  titulo: string;
+  texto: string;
+  imagem: string;
+}
+
+const DEPOIMENTOS_DATA: Depoimento[] = [
+  {
+    nome: 'Renata Lemos',
+    cargo: 'CEO da Arvo Pet Store',
+    titulo: '“O impulso que precisávamos veio deles.”',
+    texto:
+      'A parceria com a Imptus foi um divisor de águas. Nosso faturamento triplicou em três meses com o novo funil automatizado que eles criaram. Além disso, finalmente temos clareza sobre nossos dados e métricas. Hoje, cada decisão que tomamos é estratégica.',
+    imagem: '/arsene_lupin.webp',
   },
+  {
+    nome: 'Diego Marques',
+    cargo: 'Funcionario IMPTUS',
+    titulo: '“Lorem”',
+    texto: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum nulla natus odit vel quisquam dolores quas impedit, dicta ducimus soluta illo ipsa, quod eos quis fugit! Dolorum qui nulla ullam.',
+    imagem: '/arsene_lupin.webp',
+  },
+  {
+    nome: 'Diego Marques',
+    cargo: 'Funcionario IMPTUS',
+    titulo: '“Lorem”',
+    texto:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum nulla natus odit vel quisquam dolores quas impedit, dicta ducimus soluta illo ipsa, quod eos quis fugit! Dolorum qui nulla ullam.',
+    imagem: '/arsene_lupin.webp',
+  },
+  {
+    nome: 'Diego Marques',
+    cargo: 'Funcionario IMPTUS',
+    titulo: '“Lorem”',
+    texto:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum nulla natus odit vel quisquam dolores quas impedit, dicta ducimus soluta illo ipsa, quod eos quis fugit! Dolorum qui nulla ullam.',
+    imagem: '/arsene_lupin.webp',
+  },
+];
+
+const DepoimentoCard = ({ nome, cargo, titulo, texto, imagem }: Depoimento) => (
+  <article className="flex flex-col items-center gap-3 w-[90vw] max-w-[380px] flex-shrink-0 md:w-[380px]">
+    <section
+      className="relative flex w-full max-w-sm flex-col gap-4 rounded-lg bg-white p-4 shadow-lg"
+      style={{ height: 160 }}
+    >
+      <h3 className="text-md --font-barlow-semi-condensed text-black text-center">
+        {titulo}
+      </h3>
+      <p
+        className="text-xs text-gray-600 flex-grow overflow-auto text-center --font-barlow"
+        style={{ maxHeight: 90 }}
+      >
+        {texto}
+      </p>
+      <div className="absolute bottom-[-8px] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white shadow-md" />
+    </section>
+    <footer className="mt-1 flex items-center gap-2 text-xs text-white">
+      <div className="relative h-6 w-6">
+        <Image
+          src={imagem}
+          alt={`Foto de ${nome}`}
+          width={24}
+          height={24}
+          className="rounded-full object-cover"
+        />
+      </div>
+      <div>
+        <p className="font-semibold">{nome},</p>
+        <p>{cargo}</p>
+      </div>
+    </footer>
+  </article>
 );
 
-DepoimentoCard.displayName = 'DepoimentoCard';
+const useItemsPerSlide = (): number => {
+  const [itemsPerSlide, setItemsPerSlide] = useState(1);
+
+  useEffect(() => {
+    setItemsPerSlide(window.innerWidth < 768 ? 1 : 2);
+
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setItemsPerSlide(window.innerWidth < 768 ? 1 : 2);
+      }, 150);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return itemsPerSlide;
+};
 
 const Depoimentos = () => {
-  const depoimentos = [
-    {
-      nome: 'null',
-      texto: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagem: '/arsene_lupin.webp?height=120&width=120',
-    },
-    {
-      nome: 'null',
-      texto: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagem: '/placeholder.svg?height=120&width=120',
-    },
-    {
-      nome: 'null',
-      texto: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagem: '/placeholder.svg?height=120&width=120',
-    },
-    {
-      nome: 'null',
-      texto: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagem: '/placeholder.svg?height=120&width=120',
-    },
-    {
-      nome: 'null',
-      texto: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagem: '/placeholder.svg?height=120&width=120',
-    },
-    {
-      nome: 'null',
-      texto: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagem: '/placeholder.svg?height=120&width=120',
-    },
-  ];
-
+  const itemsPerSlide = useItemsPerSlide();
+  const totalSlides = useMemo(
+    () => Math.ceil(DEPOIMENTOS_DATA.length / itemsPerSlide),
+    [DEPOIMENTOS_DATA.length, itemsPerSlide],
+  );
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-
-  const itemsPerSlide = isMobile ? 1 : 3;
-  const totalSlides = Math.ceil(depoimentos.length / itemsPerSlide);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -112,16 +126,7 @@ const Depoimentos = () => {
   }, []);
 
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.matchMedia('(max-width: 768px)').matches);
-    };
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => nextSlide(), 5000);
+    const intervalId = setInterval(nextSlide, 5000);
     return () => clearInterval(intervalId);
   }, [nextSlide]);
 
@@ -131,80 +136,97 @@ const Depoimentos = () => {
 
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
-      touchEndX.current = e.changedTouches[0].clientX;
-      if (touchStartX.current !== null) {
-        const distance = touchStartX.current - e.changedTouches[0].clientX;
-        if (distance > 50) {
-          nextSlide();
-        } else if (distance < -50) {
-          prevSlide();
-        }
-      }
+      if (touchStartX.current === null) return;
+
+      const distance = touchStartX.current - e.changedTouches[0].clientX;
+      if (distance > 50) nextSlide();
+      else if (distance < -50) prevSlide();
+
       touchStartX.current = null;
-      touchEndX.current = null;
     },
     [nextSlide, prevSlide],
   );
 
-  const startIndex = currentSlide * itemsPerSlide;
-
   return (
-    <section className="relative py-24 mb-24 w-full overflow-hidden">
-      {!isMobile && (
-        <>
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            aria-label="Previous testimonial"
-          >
-            <div className="w-0 h-0 border-t-[8px] border-t-transparent border-r-[12px] border-r-gray-600 border-b-[8px] border-b-transparent"></div>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            aria-label="Next testimonial"
-          >
-            <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-gray-600 border-b-[8px] border-b-transparent"></div>
-          </button>
-        </>
-      )}
-      <div className="container mx-auto px-12">
-        <div className="overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+    <section
+      className="relative mb-24 w-full overflow-hidden py-24 text-white"
+      style={{ backgroundImage: 'var(--background-gradient-azul)' }}
+      aria-live="polite"
+    >
+      <header className="px-4 pb-12 text-center">
+        <h2 className="mb-4 text-4xl --font-barlow-semi-condensed">Depoimentos</h2>
+        <p className="mx-auto max-w-2xl text-lg">
+          Nosso sucesso está diretamente ligado ao sucesso dos nossos clientes, e nossa identidade
+          reflete{' '}
+          <strong className="text-[var(--color-secondary-laranjaqueimado)]">
+            seriedade, humanidade, inovação e força estrutural
+          </strong>
+          .
+        </p>
+      </header>
+
+      <button
+        onClick={prevSlide}
+        className="hidden md:block absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+        aria-label="Depoimento anterior"
+        type="button"
+      >
+        <div className="h-0 w-0 border-b-[8px] border-b-transparent border-r-[12px] border-r-gray-600 border-t-[8px] border-t-transparent" />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="hidden md:block absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+        aria-label="Próximo depoimento"
+        type="button"
+      >
+        <div className="h-0 w-0 border-b-[8px] border-b-transparent border-l-[12px] border-l-gray-600 border-t-[8px] border-t-transparent" />
+      </button>
+
+      <main className="container mx-auto px-6">
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="overflow-hidden"
+        >
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
               <div key={slideIndex} className="w-full flex-shrink-0">
-                <div className="flex justify-center items-stretch gap-8 max-w-6xl mx-auto px-8 py-8">
-                  {depoimentos
-                    .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
-                    .map((dep, index) => (
-                      <DepoimentoCard
-                        key={`depoimento-${slideIndex * itemsPerSlide + index}`}
-                        nome={dep.nome}
-                        texto={dep.texto}
-                        imagem={dep.imagem}
-                      />
-                    ))}
+                <div className="flex flex-col items-center justify-center gap-8 py-8 md:flex-row">
+                  {DEPOIMENTOS_DATA.slice(
+                    slideIndex * itemsPerSlide,
+                    slideIndex * itemsPerSlide + itemsPerSlide,
+                  ).map((dep, index) => (
+                    <DepoimentoCard key={slideIndex * itemsPerSlide + index} {...dep} />
+                  ))}
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-      <div className="flex justify-center mt-8 gap-2">
+      </main>
+
+      <nav
+        className="absolute bottom-[106px] left-1/2 flex h-[10px] -translate-x-1/2 flex-row items-center justify-center gap-3 p-0"
+        aria-label="Navegação dos depoimentos"
+      >
         {Array.from({ length: totalSlides }).map((_, index) => (
-          <div
-            key={`dot-${index}`}
+          <button
+            key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 cursor-pointer ${
-              index === currentSlide ? '' : 'bg-gray-300 hover:bg-gray-400'
+            className={`rounded-full transition-all duration-300 hover:scale-110 focus:outline-none ${
+              index === currentSlide
+                ? 'h-1.5 w-1.5 bg-[var(--color-neutral-branco)]'
+                : 'h-1.5 w-1.5 border border-[var(--color-neutral-cinzamedio)] bg-transparent'
             }`}
-            style={index === currentSlide ? { backgroundColor: 'var(--color-primary)' } : {}}
-          ></div>
+            aria-label={`Ir para o slide ${index + 1}`}
+            type="button"
+          />
         ))}
-      </div>
+      </nav>
     </section>
   );
 };
