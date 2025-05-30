@@ -1,16 +1,29 @@
 import Footer from '@/shared/Footer/Footer';
 import Header from '@/shared/Header/Header';
 import '../styles/globals.css';
-import { Manrope } from 'next/font/google';
+import { Barlow, Barlow_Condensed, Barlow_Semi_Condensed } from 'next/font/google';
 
-const getManrope = Manrope({
+const barlow = Barlow({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-barlow',
   weight: ['400', '500', '600', '700'],
 });
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ['latin'],
+  variable: '--font-barlow',
+  weight: ['400', '500', '600', '700'],
+});
+
+const barlowSemiCondensed = Barlow_Semi_Condensed({
+  subsets: ['latin'],
+  variable: '--font-barlow',
+  weight: ['400', '500', '600', '700'],
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={getManrope.variable}>
+    <html lang="pt-BR" className={`${barlow.variable} ${barlowCondensed.variable} ${barlowSemiCondensed.variable}`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

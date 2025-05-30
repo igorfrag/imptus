@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+:root {
+  --font-barlow: 'var(--font-barlow)';
+  --font-barlow-condensed: 'var(--font-barlow-condensed)';
+  --font-barlow-semi-condensed: 'var(--font-barlow-semi-condensed)';
+}
+
 @theme {
   --color-primary-azulprofundo: #012437;
   --color-primary-azulescuro: #00354d;
@@ -31,5 +37,5 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: var(--font-manrope);
+  font-family: var(--font-barlow);
 }
