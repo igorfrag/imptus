@@ -1,11 +1,15 @@
 const footerItems = [
   {
-    title: 'Sobre nós',
-    link: '/sobre',
-  },
-  {
     title: 'Serviços',
     link: '/servicos',
+  },
+  {
+    title: 'Depoimentos',
+    link: '/depoimentos',
+  },
+  {
+    title: 'Nosso Trabalho',
+    link: '/nossotrabalho',
   },
   {
     title: 'Contato',
