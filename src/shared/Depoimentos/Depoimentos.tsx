@@ -24,7 +24,8 @@ const DEPOIMENTOS_DATA: Depoimento[] = [
     nome: 'Diego Marques',
     cargo: 'Funcionario IMPTUS',
     titulo: '“Lorem”',
-    texto: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum nulla natus odit vel quisquam dolores quas impedit, dicta ducimus soluta illo ipsa, quod eos quis fugit! Dolorum qui nulla ullam.',
+    texto:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum nulla natus odit vel quisquam dolores quas impedit, dicta ducimus soluta illo ipsa, quod eos quis fugit! Dolorum qui nulla ullam.',
     imagem: '/arsene_lupin.webp',
   },
   {
@@ -51,9 +52,7 @@ const DepoimentoCard = ({ nome, cargo, titulo, texto, imagem }: Depoimento) => (
       className="relative flex w-full max-w-sm flex-col gap-4 rounded-lg bg-white p-4 shadow-lg"
       style={{ height: 160 }}
     >
-      <h3 className="text-md --font-barlow-semi-condensed text-black text-center">
-        {titulo}
-      </h3>
+      <h3 className="text-md --font-barlow-semi-condensed text-black text-center">{titulo}</h3>
       <p
         className="text-xs text-gray-600 flex-grow overflow-auto text-center --font-barlow"
         style={{ maxHeight: 90 }}
@@ -156,7 +155,9 @@ const Depoimentos = () => {
       <header className="px-4 pb-12 text-center">
         <h2 className="mb-4 text-4xl --font-barlow-semi-condensed">Depoimentos</h2>
         <p className="mx-auto max-w-2xl text-lg">
-          Nosso sucesso está diretamente ligado ao sucesso dos nossos clientes, <h1></h1> 
+          Nosso sucesso está diretamente ligado ao sucesso dos nossos clientes.
+        </p>
+        <p className="mx-auto max-w-2xl text-lg">
           e nossa identidade reflete{' '}
           <strong className="text-[var(--color-secondary-laranjaqueimado)]">
             seriedade, humanidade, inovação e força estrutural
