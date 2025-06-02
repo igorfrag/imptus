@@ -10,13 +10,12 @@ interface ServiceItemProps {
 const ServiceItem: FC<ServiceItemProps> = memo(({ imageSrc, title, description }) => (
   <div className="flex flex-col items-center text-center text-white max-w-[180px]">
     <div
-      className="flex items-center justify-center mb-2"
+      className="flex items-center justify-center mb-2 shadow"
       style={{
         width: 200,
         height: 200,
         borderRadius: 15,
         backgroundColor: 'var(--color-primary-azulclaro)',
-        boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)',
       }}
     >
       <img
