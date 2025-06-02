@@ -3,59 +3,42 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { MessageCircle } from "lucide-react"
+import { AlignJustify, MessageCircle } from "lucide-react"
+import HeaderItems from "./HeaderItems";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
     <header className="flex w-full justify-around items-center gap-10 py-3 px-4 relative max-md:justify-between">
-        <div className="max-md:hidden">
-          <Image src={'/dark.webp'} width={100} height={100} alt="Landify Logo" />
+        <div>
+          <Image src={'/assets/imptus_logo.svg'} width={207.07} height={68} className="w-[207.07px] max-md:w-full h-[68px] max-md:h-auto" alt="Imptus Logo" />
         </div>
-
-        <button aria-label="Botão do menu" type="button" className="md:hidden cursor-pointer" onClick={() => setShowMenu(!showMenu)}>
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            strokeWidth={1.5} 
-            stroke="currentColor" 
-            className="size-6"
-          >
-            <title>Menu</title>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-          </svg>
-        </button>
-        
-        <nav className={`${showMenu ? "max-md:flex-col absolute left-0 top-16 bg-white border border-primary z-1" : "max-md:hidden"}`}>
-          <ul className={`${showMenu ? "flex flex-col gap-10 py-5 px-10" : "flex gap-8 font-bold text-sm"}`}>
-            <li>
-              <Link aria-label="Sobre" href="#">About</Link>
-            </li>
-            <li>
-              <Link aria-label="Produto" href="#">Product</Link>
-            </li>
-            <li>
-              <Link aria-label="Preço" href="#">Pricing</Link>
-            </li>
-            <li>
-              <Link aria-label="Recursos" href="#">Resources</Link>
-            </li>
-            <li>
-              <Link aria-label="Vagas" href="#">Jobs</Link>
-            </li>
+        <nav className={`${showMenu ? "max-md:w-full flex-col absolute left-0 top-16 bg-primary-azulprofundo border border-primary z-1" : "max-md:hidden"}`}>
+          <ul className={`${showMenu ? "flex flex-col items-center gap-5 font-normal text-white py-5 px-10" : "flex gap-15 font-normal text-xl"}`}>
+            {HeaderItems.map((item, index) => (
+              <li key={index} className="hover:opacity-80">
+                <Link aria-label={item.title} href={item.link}>{item.title}</Link>
+              </li>
+            ))}
+            {
+              showMenu && (
+                <li>
+                  <Link aria-label="contato" href="#">Contato</Link>
+                </li>
+              )
+            }
           </ul>
         </nav>
         
+        <button aria-label="Botão do menu" type="button" className="md:hidden cursor-pointer" onClick={() => setShowMenu(!showMenu)}>
+          <AlignJustify size={18} color={showMenu ? "#1babca" : "#000"} />
+        </button>
 
-        <div className="flex gap-10">
-          <Button size="sm">
+        <div className="max-md:hidden">
+          <Button size="xl">
             <MessageCircle size={16} /> Contato
           </Button>
-          <button type="button" className="min-w-[100px] h-10 bg-primary text-white font-bold text-sm rounded-lg cursor-pointer hover:opacity-80">
-            Buy now
-          </button>
         </div>
 			</header>
   );
