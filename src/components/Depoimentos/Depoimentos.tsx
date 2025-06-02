@@ -153,7 +153,9 @@ const Depoimentos = () => {
       aria-live="polite"
     >
       <header className="px-4 pb-12 text-center">
-        <h2 className="mb-4 text-4xl --font-barlow-semi-condensed">Depoimentos</h2>
+        <h2 className="mb-4 text-[64px] leading-[76px] text-center font-semibold --font-barlow-semi-condensed">
+          Depoimentos
+        </h2>
         <p className="mx-auto max-w-2xl text-lg">
           Nosso sucesso está diretamente ligado ao sucesso dos nossos clientes.
         </p>
@@ -196,7 +198,8 @@ const Depoimentos = () => {
           >
             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
               <div key={slideIndex} className="w-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center gap-8 py-8 md:flex-row">
+                <div className="flex flex-col items-center justify-center gap-16 py-8 md:flex-row">
+
                   {DEPOIMENTOS_DATA.slice(
                     slideIndex * itemsPerSlide,
                     slideIndex * itemsPerSlide + itemsPerSlide,
