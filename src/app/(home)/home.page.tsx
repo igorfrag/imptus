@@ -4,6 +4,7 @@ import Sobre from '@/components/Sobre/Sobre';
 import Depoimentos from '@/shared/Depoimentos/Depoimentos';
 import Hero from '@/components/Hero/Hero';
 import Services from '@/components/Services/Services';
+import HowWeWork from '@/shared/HowWork/HowWeWork';
 
 const HomePage = () => {
   return (
@@ -15,6 +16,8 @@ const HomePage = () => {
         <div>
           <Depoimentos />
         </div>
+
+        <HowWeWork />
       </main>
     </div>
   );
