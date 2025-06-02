@@ -156,8 +156,8 @@ const Depoimentos = () => {
       <header className="px-4 pb-12 text-center">
         <h2 className="mb-4 text-4xl --font-barlow-semi-condensed">Depoimentos</h2>
         <p className="mx-auto max-w-2xl text-lg">
-          Nosso sucesso está diretamente ligado ao sucesso dos nossos clientes, e nossa identidade
-          reflete{' '}
+          Nosso sucesso está diretamente ligado ao sucesso dos nossos clientes, <h1></h1> 
+          e nossa identidade reflete{' '}
           <strong className="text-[var(--color-secondary-laranjaqueimado)]">
             seriedade, humanidade, inovação e força estrutural
           </strong>
