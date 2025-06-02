@@ -1,8 +1,14 @@
 import { Rocket, Search, Wrench } from "lucide-react";
 import HowWeWorkCard from "./HowWeWorkCard";
 
+interface HowWeWorkProps {
+   icon: React.ReactNode;
+   title: string;
+   description: string;    
+}
+
 const HowWeWork = () => {
-    const HOWWEWORK_DATA = [
+    const HOWWEWORK_DATA: HowWeWorkProps[] = [
         {
             icon: <Search size={113} color="var(--color-secondary-laranjaqueimado)" />,
             title: "Diagnóstico Estratégico",
