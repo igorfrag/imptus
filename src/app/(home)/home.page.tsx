@@ -1,10 +1,10 @@
 import React from 'react';
+import Depoimentos from '@/components/Depoimentos/Depoimentos';
+import Hero from '@/components/Hero/Hero';
+import HowWeWork from '@/components/HowWork/HowWeWork';
+import Services from '@/components/Services/Services';
 import Sobre from '@/components/Sobre/Sobre';
 
-import Depoimentos from '@/shared/Depoimentos/Depoimentos';
-import Hero from '@/components/Hero/Hero';
-import Services from '@/components/Services/Services';
-import HowWeWork from '@/components/HowWork/HowWeWork';
 
 const HomePage = () => {
   return (
