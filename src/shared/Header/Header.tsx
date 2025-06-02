@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="flex w-full justify-around items-center gap-10 py-3 px-4 relative max-md:justify-between">
         <div>
-          <Image src={'/assets/imptus_logo.svg'} width={207.07} height={68} className="w-[207.07px] max-md:w-full h-[68px] max-md:h-auto" alt="Imptus Logo" />
+          <Image src={'/assets/imptus_logo.svg'} width={0} height={0} className="w-[207.07px] max-md:w-full h-[68px] max-md:h-auto" alt="Imptus Logo" />
         </div>
         <nav className={`${showMenu ? "max-md:w-full flex-col absolute left-0 top-16 bg-primary-azulprofundo border border-primary z-1" : "max-md:hidden"}`}>
           <ul className={`${showMenu ? "flex flex-col items-center gap-5 font-normal text-white py-5 px-10" : "flex gap-15 font-normal text-xl"}`}>
