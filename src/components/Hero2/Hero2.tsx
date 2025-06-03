@@ -10,7 +10,7 @@ const Hero2 = () => {
         </h1>
 
         <div className="mt-10 sm:mt-12 flex justify-center">
-          <Button size="3xl">Saiba mais</Button>
+          <Button size="3xl">Começar agora</Button>
         </div>
       </div>
     </section>
