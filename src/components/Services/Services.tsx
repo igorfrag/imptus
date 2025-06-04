@@ -13,9 +13,13 @@ const services = [
 ] as const;
 
 const Services: FC = () => {
-  const serviceItems = useMemo(() => services.map(({ imageSrc, title, description }) => (
-    <ServiceItem key={title} imageSrc={imageSrc} title={title} description={description} />
-  )), []);
+  const serviceItems = useMemo(
+    () =>
+      services.map(({ imageSrc, title, description }) => (
+        <ServiceItem key={title} imageSrc={imageSrc} title={title} description={description} />
+      )),
+    [],
+  );
 
   return (
     <section className="bg-gradient-azul flex items-center justify-center min-h-screen py-16 px-4 md:px-8 lg:px-16">

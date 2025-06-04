@@ -31,10 +31,7 @@ const ServiceItem: FC<ServiceItemProps> = memo(({ imageSrc, title, description }
         decoding="async"
       />
     </div>
-    <div
-      className="flex flex-col items-center"
-      style={{ fontFamily: 'var(--font-barlow-semi-condensed)' }}
-    >
+    <div className="flex flex-col items-center font-barlow">
       <h3
         style={{
           color: 'var(--color-neutral-branco)',
