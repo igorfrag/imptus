@@ -30,10 +30,19 @@
   .bg-gradient-azul {
     background-image: var(--background-gradient-azul);
   }
+
   .bg-hero-image {
     background-image: url('/assets/imptus_logo_hero.svg'), var(--background-gradient-azul);
     background-repeat: no-repeat;
     background-size: contain, cover;
+  }
+
+  .bg-gradient-form {
+    background: linear-gradient(
+      270.01deg,
+      rgba(0, 53, 77, 1) 0%,
+      rgba(0, 53, 77, 0.7) 100%
+    );
   }
 
   .shadow {
