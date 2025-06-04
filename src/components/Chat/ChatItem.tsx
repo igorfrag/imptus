@@ -1,3 +1,5 @@
+import Button from "../Button";
+
 export default function ChatItem() {
   const fields = [
     { type: 'text', placeholder: 'Nome' },
@@ -8,8 +10,8 @@ export default function ChatItem() {
   return (
     <form className="w-full py-8 p-6 rounded-[10px] bg-gradient-form shadow space-y-4 text-white font-[var(--font-barlow-semi-condensed)] text-[18px] leading-[21.5px] text-center flex flex-col">
       <div>
-        <h3 className="text-2xl font-semibold mb-3">Envie sua Mensagem</h3>
-        <p className="mb-6 text-sm md:text-base">
+        <h3 className="text-[45px] font-semibold mb-6">Envie sua Mensagem</h3>
+        <p className="mb-6 text-[18px] md:text-base">
           Converse com a gente e descubra como podemos impulsionar o seu negócio.
         </p>
         {fields.map(({ type, placeholder }, index) => (
@@ -35,12 +37,18 @@ export default function ChatItem() {
           />
           I'm not a robot
         </label>
-        <button
-          type="submit"
-          className="w-full bg-[var(--color-secondary-azulneon)] text-black font-semibold py-3 rounded hover:bg-[var(--color-secondary-laranjaqueimado)] transition-colors"
-        >
-          Enviar
-        </button>
+
+        <Button
+            size="xl"
+            bgColor="primary-azulprofundo"
+            textColor="secondary-azulneon"
+            borderColor="secondary-azulneon"
+            hover
+            hoverBorder="secondary-laranjaqueimado"
+            hoverText="secondary-laranjaqueimado"
+          >
+            Enviar
+          </Button>
       </div>
     </form>
   );
