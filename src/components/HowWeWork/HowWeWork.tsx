@@ -28,6 +28,7 @@ const HowWeWork = () => {
      
     return (
         <section 
+            id="howWeWork"
             className="w-full flex flex-col items-center gap-20 font-barlow-condensed font-normal py-15"
             style={{ backgroundImage: 'var(--background-gradient-azul)' }}
         >

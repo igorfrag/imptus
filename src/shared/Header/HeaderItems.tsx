@@ -1,15 +1,15 @@
 const HeaderItems = [
     {
         title: 'Serviços',
-        link: '/servicos',
+        link: '#services',
     },
     {
         title: 'Depoimentos',
-        link: '/depoimentos',
+        link: '#depoimentos',
     },
     {
         title: 'Nosso Trabalho',
-        link: '/nossotrabalho',
+        link: '#howWeWork',
     }
 ]
 export default HeaderItems;

@@ -148,6 +148,7 @@ const Depoimentos = () => {
 
   return (
     <section
+      id="depoimentos"
       className="relative mb-padding w-full overflow-hidden py-24 text-white"
       style={{ backgroundImage: 'var(--background-gradient-azul)' }}
       aria-live="polite"
