@@ -168,23 +168,9 @@ const Depoimentos = () => {
         </p>
       </header>
 
-      <button
-        onClick={prevSlide}
-        className="hidden md:block absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-        aria-label="Depoimento anterior"
-        type="button"
-      >
-        <div className="h-0 w-0 border-b-[8px] border-b-transparent border-r-[12px] border-r-gray-600 border-t-[8px] border-t-transparent" />
-      </button>
+      <button onClick={prevSlide} />
 
-      <button
-        onClick={nextSlide}
-        className="hidden md:block absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-        aria-label="Próximo depoimento"
-        type="button"
-      >
-        <div className="h-0 w-0 border-b-[8px] border-b-transparent border-l-[12px] border-l-gray-600 border-t-[8px] border-t-transparent" />
-      </button>
+      <button onClick={nextSlide} />
 
       <main className="container mx-auto px-6">
         <div
@@ -199,7 +185,6 @@ const Depoimentos = () => {
             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
               <div key={slideIndex} className="w-full flex-shrink-0">
                 <div className="flex flex-col items-center justify-center gap-16 py-8 md:flex-row">
-
                   {DEPOIMENTOS_DATA.slice(
                     slideIndex * itemsPerSlide,
                     slideIndex * itemsPerSlide + itemsPerSlide,
