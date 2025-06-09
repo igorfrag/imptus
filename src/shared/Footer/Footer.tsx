@@ -2,7 +2,7 @@ import footerItems from './footerItems';
 
 const Footer = () => {
   return (
-    <footer className="flex bg-primary-azulprofundo text-neutral-cinzaclaro  w-full sm:h-[66px] max-sm:pb-10 text-center justify-evenly align-center flex-row gap-4  max-sm:flex-col">
+    <footer className="flex bg-gradient-azulclaro text-primary-azulprofundo  w-full sm:h-[66px] max-sm:pb-10 text-center justify-evenly align-center flex-row gap-4  max-sm:flex-col">
       <div className="self-center">
         <img src="/assets/imptus_logo.svg" alt="Imptus Logo" className="h-12 w-auto max-sm:m-2" />
       </div>

@@ -54,14 +54,14 @@ const DepoimentoCard = ({ nome, cargo, titulo, texto, imagem }: Depoimento) => (
     >
       <h3 className="text-md --font-barlow-semi-condensed text-black text-center">{titulo}</h3>
       <p
-        className="text-xs text-gray-600 flex-grow overflow-auto text-center --font-barlow"
+        className="text-xs text-primary-azulescuro flex-grow overflow-auto text-center --font-barlow"
         style={{ maxHeight: 90 }}
       >
         {texto}
       </p>
       <div className="absolute bottom-[-8px] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white shadow-md" />
     </section>
-    <footer className="mt-1 flex items-center gap-2 text-xs text-white">
+    <footer className="mt-1 flex items-center gap-2 text-xs text-primary-azulescuro">
       <div className="relative h-6 w-6">
         <Image
           src={imagem}
@@ -149,8 +149,8 @@ const Depoimentos = () => {
   return (
     <section
       id="depoimentos"
-      className="relative mb-padding w-full overflow-hidden py-24 text-white"
-      style={{ backgroundImage: 'var(--background-gradient-azul)' }}
+      className="relative mb-padding w-full overflow-hidden py-24 text-primary-azulescuro"
+      style={{ backgroundImage: 'var(--background-gradient-azulclaro)' }}
       aria-live="polite"
     >
       <header className="px-4 pb-12 text-center">

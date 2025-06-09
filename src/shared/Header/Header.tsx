@@ -10,7 +10,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <header className="bg-primary-azulprofundo flex w-full justify-around items-center gap-10 py-3 px-4 relative max-md:justify-between">
+    <header className="bg-gradient-azulclaro flex w-full justify-around items-center gap-10 py-3 px-4 fixed max-md:justify-between z-50">
       <Link href="/" aria-label="Logo da Imptus" className="block w-[207px] max-[500px]:w-[72px]">
         <Image
           src="/assets/imptus_logo.svg"
@@ -21,10 +21,10 @@ const Header = () => {
         />
       </Link>
       <nav
-        className={`${showMenu ? 'top-23 max-md:w-full flex-col absolute left-0 bg-primary-azulprofundo z-1 max-[500px]:top-12' : 'max-md:hidden'}`}
+        className={`${showMenu ? 'top-23 max-md:w-full flex-col absolute left-0 bg-gradient-azulclaro z-100 max-[500px]:top-12' : 'max-md:hidden'}`}
       >
         <ul
-          className={`${showMenu ? 'flex flex-col items-center gap-5 font-normal text-neutral-cinzamedio  py-5 px-10' : 'flex gap-15 font-normal text-xl text-neutral-cinzaclaro'}`}
+          className={`${showMenu ? 'flex flex-col items-center gap-5 font-normal text-primary-azulprofundo  py-5 px-10' : 'flex gap-15 font-normal text-xl text-primary-azulprofundo'}`}
         >
           {HeaderItems.map((item, index) => (
             <li key={index} className="hover:opacity-80">
@@ -57,11 +57,11 @@ const Header = () => {
           <Button
             size="xl"
             bgColor="primary-azulescuro"
-            textColor="secondary-azulneon"
-            borderColor="secondary-azulneon"
+            textColor="secondary-laranjaqueimado"
+            borderColor="secondary-laranjaqueimado"
             hover
-            hoverBorder="secondary-laranjaqueimado"
-            hoverText="secondary-laranjaqueimado"
+            hoverBorder="secondary-azulneon"
+            hoverText="secondary-azulneon"
           >
             <MessageCircle size={16} /> Contato
           </Button>

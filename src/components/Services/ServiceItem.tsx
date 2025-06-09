@@ -8,28 +8,30 @@ interface ServiceItemProps {
 }
 
 const ServiceItem: FC<ServiceItemProps> = memo(({ imageSrc, title, description }) => (
-  <div className="flex flex-col items-center text-center text-white max-w-[180px]">
-    <div
-      className="flex items-center justify-center mb-2 shadow"
-      style={{
-        width: 200,
-        height: 200,
-        borderRadius: 15,
-        backgroundColor: 'var(--color-primary-azulclaro)',
-      }}
-    >
-      <img
-        src={typeof imageSrc === 'string' ? imageSrc : imageSrc.src}
-        alt={title}
+  <div className="flex flex-col items-center text-center text-white max-w-[180px] ">
+    <div className="drop-shadow-2xl/50">
+      <div
+        className="flex items-center justify-center mb-2 "
         style={{
-          width: 128,
-          height: 128,
-          filter:
-            'brightness(0) saturate(100%) invert(49%) sepia(87%) saturate(1633%) hue-rotate(338deg) brightness(102%) contrast(105%)',
+          height: 200,
+          backgroundColor: 'var(--color-primary-azulclaro)',
+          aspectRatio: 'cos(30deg)',
+          clipPath: 'polygon(-50% 50%,50% 100%,150% 50%,50% 0)',
         }}
-        loading="lazy"
-        decoding="async"
-      />
+      >
+        <img
+          src={typeof imageSrc === 'string' ? imageSrc : imageSrc.src}
+          alt={title}
+          style={{
+            width: 96,
+            height: 96,
+            filter:
+              'brightness(0) saturate(100%) invert(49%) sepia(87%) saturate(1633%) hue-rotate(338deg) brightness(102%) contrast(105%)',
+          }}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
     <div className="flex flex-col items-center font-barlow">
       <h3
