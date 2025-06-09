@@ -23,7 +23,7 @@ export default function Chat() {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center h-screen max-sm:p-5 text-white max-w-screen max-h-150 max-md:max-h-110 max-sm:max-h-96">
+    <section className="flex flex-col items-center justify-center h-screen max-sm:p-5 text-primary-azulprofundo max-w-screen max-h-150 max-md:max-h-110 max-sm:max-h-96">
       <div className="w-full max-w-6xl p-8 flex flex-col md:flex-row justify-between items-start gap-12">
         <div className="flex-1 font-barlow text-[25px] leading-[30px] max-w-[480px]">
           <h2 className="text-4xl font-bold mb-4">Entre em contato</h2>
@@ -37,7 +37,7 @@ export default function Chat() {
           <ul className="space-y-4">
             {items.map(({ src, alt, text }, index) => (
               <li key={index}>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 ">
                   <Image
                     src={src}
                     alt={alt}
