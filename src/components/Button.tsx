@@ -8,6 +8,7 @@ type ButtonProps = {
   hoverBg?: string;
   hoverText?: string;
   hoverBorder?: string;
+  onClick?: () => void;
 };
 
 const Button = ({
@@ -20,6 +21,7 @@ const Button = ({
   hoverBg,
   hoverText,
   hoverBorder,
+  onClick,
 }: ButtonProps) => {
   const sizeClasses = {
     xl: 'h-[50px] min-w-[120px] text-xl',
@@ -33,6 +35,7 @@ const Button = ({
         ${hover && hoverText ? 'hover:text-' + hoverText : ''}
         ${hover && hoverBorder ? 'hover:border-' + hoverBorder : ''}
         font-barlow-condensed font-medium rounded-[10px] cursor-pointer ${sizeClasses[size]} hover:opacity-80`}
+      onClick={onClick}
     >
       {children}
     </button>
