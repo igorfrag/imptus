@@ -2,6 +2,7 @@ import Footer from '@/shared/Footer/Footer';
 import Header from '@/shared/Header/Header';
 import '../styles/globals.css';
 import { Barlow, Barlow_Condensed, Barlow_Semi_Condensed } from 'next/font/google';
+import LiveChatButton from '@/shared/LiveChat/LiveChat';
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -23,7 +24,10 @@ const barlowSemiCondensed = Barlow_Semi_Condensed({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${barlow.variable} ${barlowCondensed.variable} ${barlowSemiCondensed.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${barlow.variable} ${barlowCondensed.variable} ${barlowSemiCondensed.variable}`}
+    >
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <LiveChatButton />
       </body>
     </html>
   );
