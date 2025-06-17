@@ -9,6 +9,7 @@ type ButtonProps = {
   hoverText?: string;
   hoverBorder?: string;
   onClick?: () => void;
+  type?: 'submit' | 'reset' | 'button' | undefined;
 };
 
 const Button = ({
@@ -22,6 +23,7 @@ const Button = ({
   hoverText,
   hoverBorder,
   onClick,
+  type,
 }: ButtonProps) => {
   const sizeClasses = {
     xl: 'h-[50px] min-w-[120px] text-xl',
@@ -30,6 +32,7 @@ const Button = ({
 
   return (
     <button
+      type={type}
       className={`flex items-center justify-center gap-2 ${'bg-' + bgColor} border-solid border ${'border-' + borderColor} ${'text-' + textColor} 
         ${hover && hoverBg ? 'hover:bg-' + hoverBg : ''} 
         ${hover && hoverText ? 'hover:text-' + hoverText : ''}
