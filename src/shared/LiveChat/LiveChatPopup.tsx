@@ -50,11 +50,17 @@ const LiveChatPopup = ({ onClick }: LiveChatPopupProps) => {
       setIsAtendimentoFinalizado(true);
     });
 
+    socket.on('end-chat', () => {
+      setMessages((prev) => [...prev, '🔴 Atendimento finalizado.']);
+      setIsAtendimentoFinalizado(true);
+    });
+
     return () => {
       socket.off('waiting');
       socket.off('room-created');
       socket.off('message');
       socket.off('partner-disconnected');
+      socket.off('end-chat');
     };
   }, []);
 
