@@ -2,7 +2,6 @@ import Footer from '@/shared/Footer/Footer';
 import Header from '@/shared/Header/Header';
 import '../styles/globals.css';
 import { Barlow, Barlow_Condensed, Barlow_Semi_Condensed } from 'next/font/google';
-import LiveChatContainer from '@/shared/LiveChat/LiveChatContainer';
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -46,8 +45,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header />
         <main>{children}</main>
+
         <Footer />
-        <LiveChatContainer />
       </body>
     </html>
   );

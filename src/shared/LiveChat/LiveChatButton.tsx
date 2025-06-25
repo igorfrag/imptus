@@ -6,7 +6,7 @@ type LiveChatButtonProps = {
 const LiveChatButton = ({ onClick }: LiveChatButtonProps) => {
   return (
     <button
-      className="bg-secondary-laranjaqueimado hover:bg-secondary-azulneon right-10 bottom-10 fixed items-center justify-center flex text-secondary-laranjaqueimado  hover:text-secondary-azulneon cursor-pointer"
+      className="bg-secondary-laranjaqueimado hover:bg-secondary-azulneon right-10 bottom-5 fixed items-center justify-center flex text-secondary-laranjaqueimado  hover:text-secondary-azulneon cursor-pointer"
       style={{
         aspectRatio: 'cos(30deg)',
         clipPath: 'polygon(-50% 50%,50% 100%,150% 50%,50% 0)',
