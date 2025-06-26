@@ -67,7 +67,7 @@ export function useFloatingChat(chatOpen: boolean) {
   useEffect(() => {
     if (!chatOpen) return;
 
-    const SOCKET_SERVER_URL = 'http://localhost:3002';
+    const SOCKET_SERVER_URL = process.env.NEXT_PUBLIC_SOCKET_SERVER || 'http://localhost:3002';
     if (!socketRef.current) {
       socketRef.current = io(SOCKET_SERVER_URL, {
         transports: ['websocket', 'polling'],
